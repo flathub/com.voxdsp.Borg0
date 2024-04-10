@@ -25,4 +25,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/BeverlyCode/Borg-ER-0
-        commit: ebe6857d57387671eb2e95bd4785f0b07eaac420
+        commit: 8ba3d4c730afe2f34c99bc6f48c7088370e160b5
