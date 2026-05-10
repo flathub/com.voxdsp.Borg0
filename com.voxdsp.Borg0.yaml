@@ -1,6 +1,6 @@
 app-id: com.voxdsp.Borg0
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: borg0
 rename-icon: borg0
@@ -19,10 +19,12 @@ modules:
     build-commands:
       - cc main.c -Ofast -lSDL2 -lm -o borg0
       - install -Dm 0755 borg0 -t ${FLATPAK_DEST}/bin
-      - install -Dm 0644 flatpak/borg0.desktop ${FLATPAK_DEST}/share/applications/borg0.desktop
-      - install -Dm 0644 flatpak/borg0.appdata.xml ${FLATPAK_DEST}/share/metainfo/borg0.appdata.xml
-      - install -Dm 0644 flatpak/borg0.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/borg0.png
+      - install -Dm 0644 flatpak/borg0.desktop -t ${FLATPAK_DEST}/share/applications/
+      - install -Dm 0644 flatpak/borg0.appdata.xml -t ${FLATPAK_DEST}/share/metainfo/
+      - install -Dm 0644 flatpak/borg0.png -t ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/
     sources:
       - type: git
         url: https://github.com/BeverlyCode/Borg-ER-0
         commit: afb78a8bf562771d33ce295038f5caa66470c212
+      - type: patch
+        path: fix-appdata.patch
